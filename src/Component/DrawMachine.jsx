@@ -65,7 +65,7 @@ const DrawMachine = () => {
             style={{ backgroundImage: `url(${BackgroundImage})` }}
           >
             <div className="draw-overlay ">
-              <h3 className="winning-num">Today's Winning Numbers</h3>
+              <h3 className="winning-num">The Lucky Winner Is</h3>
               <div className="draw-number-card">
                 {drawNumber.split("").map((digit, index) => (
                   <div key={index} className="draw-number-button">
