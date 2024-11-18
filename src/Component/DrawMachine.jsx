@@ -3,36 +3,59 @@ import Arrow from "../assets/Images/Arrow.png";
 import BackgroundImage from "../assets/Images/Glo-sn-Img.png";
 // import DrawImage from "../assets/Images/mobile1.png";
 import "../Styles/DrawMachine.css";
-// import axios from "axios";
+import axios from "axios";
 
 const DrawMachine = () => {
-  const [drawNumber, setDrawNumber] = useState("0000000000");
+  const [drawNumber, setDrawNumber] = useState("0000000000000");
   const [rolling, setRolling] = useState(false);
   const [drawDate, setDrawDate] = useState("");
-  const [preloadedNumber, setPreloadedNumber] = useState("0000000000");
+  const [message, setMessage] = useState("Fetching data...");
+  const [preloadedNumber, setPreloadedNumber] = useState("0000000000000");
+  const [loading, setLoading] = useState(false);
 
-  //   useEffect(() => {
-  //     const preloadDrawnNumber = async () => {
-  //       try {
-  //         const response = await axios.get(
-  //           "https://glodraw.ydplatform.com/api/winners/DrawnNumber"
-  //         );
-  //         const drawnNumber = response.data.drawnNumber;
-  //         const drawDate = response.data.drawDate;
 
-  //         setPreloadedNumber(drawnNumber === "00000" ? "00000" : drawnNumber);
-  //         setDrawDate(drawDate);
-  //       } catch (error) {
-  //         console.error(error);
-  //         setPreloadedNumber("00000");
-  //       }
-  //     };
+    useEffect(() => {
+      const fetchData = async () => {
+        setLoading(true);
 
-  //     preloadDrawnNumber();
-  //   }, []);
+        try {
+          const response = await axios.get(
+            "http://69.197.174.35:3005/api/v1/slotmachine/msisdn"
+          );
+          // const data = response.data;
+          if (response.data.msisdn) {
+            setMessage("The Lucky Winner Is");
+            setDrawNumber(response.data.msisdn);
+          } else {
+            setMessage(response.data.message || "No ");
+            setDrawNumber("0000000000000");
+          }
+        
+        } catch (error) {
+          if (error.response?.status === 404) {
+            setMessage(error.response.data.message || "loading...");
+          } else {
+            setMessage("An error occurred. Please try again later.");
+          }
+          console.error(error);
+          console.error("API Error:", error);
+
+          console.error("Error Details:", error.response?.data || error.message);
+          setDrawNumber("0000000000000");
+
+          // setPreloadedNumber("0000000000");
+        // }
+      } finally {
+        setLoading(false);
+      }
+      };
+
+      fetchData();
+    }, []);
 
   const startDraw = () => {
     setRolling(true);
+    // setMessage("Loading in..."); 
     const duration = 10000;
     const intervalSpeed = 100;
     const totalIntervals = duration / intervalSpeed;
@@ -42,9 +65,9 @@ const DrawMachine = () => {
     const interval = setInterval(() => {
       if (counter < totalIntervals) {
         setDrawNumber(
-          Math.floor(Math.random() * 10000000000)
+          Math.floor(Math.random() * 10000000000000)
             .toString()
-            .padStart(10, "0")
+            .padStart(13, "0")
         );
         counter++;
       } else {
@@ -65,7 +88,10 @@ const DrawMachine = () => {
             style={{ backgroundImage: `url(${BackgroundImage})` }}
           >
             <div className="draw-overlay ">
-              <h3 className="winning-num">The Lucky Winner Is</h3>
+              {/* <h3 className="winning-num">{message}</h3> */}
+              <h3 className="winning-num">
+              {loading ? "Loading..." : message} {/* Show loading state */}
+            </h3>
               <div className="draw-number-card">
                 {drawNumber.split("").map((digit, index) => (
                   <div key={index} className="draw-number-button">
