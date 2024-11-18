@@ -20,7 +20,8 @@ const DrawMachine = () => {
 
         try {
           const response = await axios.get(
-            "http://69.197.174.35:3005/api/v1/slotmachine/msisdn"
+            // "http://69.197.174.35:3005/api/v1/slotmachine/msisdn"
+            "https://slotmachine.ydaplatform.com/api/v1/slotmachine/msisdn"
           );
           // const data = response.data;
           if (response.data.msisdn) {
