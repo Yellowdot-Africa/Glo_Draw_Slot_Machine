@@ -61,7 +61,6 @@
   font-weight: normal;
   font-size: 40px;
   margin-bottom: 30px;
-
   text-align: center;
   color: #003535;
   text-shadow: -0px -1px 0 #ffffff, -1px -1px 0 #ffffff, -1px 0px 0 #fff,
@@ -102,126 +101,124 @@
   filter: invert(1);
 }
 
-
-
-@media  (max-width: 549px) {
-    .draw-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-  
-  
-    .draw-image-container {
-      background-image: none !important;
-      background-color: green;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-  
-    .draw-overlay {
-      color: #ffffff;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-    }
-    .draw-number-card {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 1px;
-      padding: 10px 70px;
-      border: 4px solid #ffffff;
-      background-color: rgba(47, 255, 71, 0.215);
-      border-radius: 50px;
-      width: 23%;
-      margin:0 auto;
-    }
-  
-    .draw-number-button {
-      width: 106px;
-      height: 37px;
-      margin: 2px;
-      border-radius: 20px;
-      border: 1px solid white;
-      font-size: 25px;
-      color: #000000;
-      font-family: "SF Alien Encounters Regular";
-      font-weight: 400;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
-      padding: 10px 10px;
-    }
-  
-    .draw-number {
-      position: absolute;
-      animation: rollAnimation 0.1s linear infinite;
-    }
-  
-    .winning-num {
-      font-family: "SF Alien Encounters Italic";
-      font-style: italic;
-      font-weight: normal;
-      font-size: 20px;
-      margin-bottom: 30px;
-      text-align: center;
-      color: #003535;
-      text-shadow: -0px -1px 0 #ffffff, -1px -1px 0 #ffffff, -1px 0px 0 #fff,
-        1px 1px 0 #ffffff;
-    }
-  
-    .draw-button {
-      width: 245px;
-      height: 63px;
-      background-color: green;
-      font-family: "SF Alien Encounters Solid";
-      font-size: 20px;
-      font-weight: bold;
-      font-style: normal;
-      line-height: 23.51px;
-      text-align: center;
-      padding: 10px 20px;
-      cursor: pointer;
-      color: #ffffff;
-      border-radius: 10px;
-      border: 3px solid #fffff8ff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 15px;
-      margin: 23.51px auto;
-    }
-  
-    .draw-button:disabled {
-      background-color: #003535;
-      border: 3px solid #00000080;
-      cursor: not-allowed;
-    }
-  
-    .arrow-img {
-      margin-top: -3px;
-      color: #fff;
-      filter: invert(1);
-    }
-  }
-  
-
-
-
-@media (min-width:550px) and  (max-width: 968px) {
+@media (max-width: 549px) {
   .draw-container {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 
+  .draw-image-container {
+    background-image: none !important;
+    background-color: green;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .draw-overlay {
+    color: #ffffff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  .draw-number-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1px;
+    padding: 10px 70px;
+    border: 4px solid #ffffff;
+    background-color: rgba(47, 255, 71, 0.215);
+    border-radius: 50px;
+    width: 23%;
+    margin: 0 auto;
+  }
+
+  .draw-number-button {
+    width: 106px;
+    height: 37px;
+    margin: 2px;
+    border-radius: 20px;
+    border: 1px solid white;
+    font-size: 25px;
+    color: #000000;
+    font-family: "SF Alien Encounters Regular";
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding: 10px 10px;
+  }
+
+  .draw-number {
+    position: absolute;
+    animation: rollAnimation 0.1s linear infinite;
+  }
+
+  .winning-num {
+    font-family: "SF Alien Encounters Italic";
+    font-style: italic;
+    font-weight: normal;
+    font-size: 20px;
+    white-space: normal;
+    word-wrap: break-word;
+    text-align: center;
+    max-width: 21%;
+    margin: auto;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #003535;
+    text-shadow: -0px -1px 0 #ffffff, -1px -1px 0 #ffffff, -1px 0px 0 #fff,
+      1px 1px 0 #ffffff;
+  }
+
+  .draw-button {
+    width: 245px;
+    height: 63px;
+    background-color: green;
+    font-family: "SF Alien Encounters Solid";
+    font-size: 20px;
+    font-weight: bold;
+    font-style: normal;
+    line-height: 23.51px;
+    text-align: center;
+    padding: 10px 20px;
+    cursor: pointer;
+    color: #ffffff;
+    border-radius: 10px;
+    border: 3px solid #fffff8ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin: 23.51px auto;
+  }
+
+  .draw-button:disabled {
+    background-color: #003535;
+    border: 3px solid #00000080;
+    cursor: not-allowed;
+  }
+
+  .arrow-img {
+    margin-top: -3px;
+    color: #fff;
+    filter: invert(1);
+  }
+}
+
+@media (min-width: 550px) and (max-width: 968px) {
+  .draw-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
   .draw-image-container {
     background-image: none !important;
@@ -250,7 +247,7 @@
     background-color: rgba(47, 255, 71, 0.215);
     border-radius: 50px;
     width: 60%;
-    margin:0 auto;
+    margin: 0 auto;
   }
 
   .draw-number-button {
